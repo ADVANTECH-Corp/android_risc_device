@@ -33,3 +33,6 @@ PRODUCT_MAKEFILES := \
   $(LOCAL_DIR)/sabresd_6sx.mk \
   $(LOCAL_DIR)/sabreauto_6sx.mk \
   $(LOCAL_DIR)/evk_6ul.mk \
+  $(LOCAL_DIR)/rsb_4410_a1.mk \
+  $(LOCAL_DIR)/rsb_4410_a2.mk \
+  $(LOCAL_DIR)/rsb_4411_a1.mk

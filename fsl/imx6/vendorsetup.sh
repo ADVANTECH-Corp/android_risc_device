@@ -11,3 +11,9 @@ add_lunch_combo sabreauto_6sx-eng
 add_lunch_combo sabreauto_6sx-user
 add_lunch_combo evk_6ul-eng
 add_lunch_combo evk_6ul-user
+add_lunch_combo rsb_4410_a1-eng
+add_lunch_combo rsb_4410_a1-user
+add_lunch_combo rsb_4410_a2-eng
+add_lunch_combo rsb_4410_a2-user
+add_lunch_combo rsb_4411_a1-eng
+add_lunch_combo rsb_4411_a1-user
