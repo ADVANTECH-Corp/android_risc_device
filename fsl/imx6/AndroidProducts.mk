@@ -35,4 +35,5 @@ PRODUCT_MAKEFILES := \
   $(LOCAL_DIR)/evk_6ul.mk \
   $(LOCAL_DIR)/rsb_4410_a1.mk \
   $(LOCAL_DIR)/rsb_4410_a2.mk \
-  $(LOCAL_DIR)/rsb_4411_a1.mk
+  $(LOCAL_DIR)/rsb_4411_a1.mk \
+  $(LOCAL_DIR)/rom_3420_a1.mk
