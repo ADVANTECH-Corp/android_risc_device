@@ -23,7 +23,8 @@ def FullOTA_InstallEnd_Ext4(info):
   except KeyError:
     print "no bootloader.raw in target_files; skipping install"
   else:
-    WriteExt4Bootloader(info, bootloader_bin)
+    print "bootloader update is currently unsupported"
+    # WriteExt4Bootloader(info, bootloader_bin)
 
 def FullOTA_InstallEnd_Ubifs(info):
   try:
@@ -31,7 +32,8 @@ def FullOTA_InstallEnd_Ubifs(info):
   except KeyError:
     print "no bootloader.raw in target_files; skipping install"
   else:
-    WriteUbifsBootloader(info, bootloader_bin)
+    print "bootloader update is currently unsupported"
+    # WriteUbifsBootloader(info, bootloader_bin)
 
 
 def IncrementalOTA_InstallEnd_Ext4(info):
@@ -45,7 +47,8 @@ def IncrementalOTA_InstallEnd_Ext4(info):
     if source_bootloader_bin == target_bootloader_bin:
       print "bootloader unchanged; skipping"
     else:
-      WriteExt4Bootloader(info, target_bootloader_bin)
+      print "bootloader update is currently unsupported"
+      # WriteExt4Bootloader(info, target_bootloader_bin)
   except KeyError:
     print "no bootloader.img in target target_files; skipping install"
 
@@ -61,7 +64,8 @@ def IncrementalOTA_InstallEnd_Ubifs(info):
     if source_bootloader_bin == target_bootloader_bin:
       print "bootloader unchanged; skipping"
     else:
-      WriteUbifsBootloader(info, target_bootloader_bin)
+      print "bootloader update is currently unsupported"
+      # WriteUbifsBootloader(info, target_bootloader_bin)
   except KeyError:
     print "no bootloader.img in target target_files; skipping install"
 
