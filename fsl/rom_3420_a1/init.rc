@@ -315,6 +315,28 @@ service pppd_gprs /etc/ppp/init.gprs-pppd
     disabled
     oneshot
 
+# offline OTA process
+service offline_otaproc /system/bin/sh /system/etc/update.sh
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.update.trigger=1
+    start offline_otaproc
+
+# startup service
+service startup_service /system/bin/sh /system/etc/startup.sh
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.startup.trigger=1
+    start startup_service
+
 on fs
 # mount ext4 partitions
     mount_all /fstab.freescale
