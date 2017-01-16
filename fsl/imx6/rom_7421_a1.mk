@@ -26,6 +26,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES +=	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6d.bin:system/lib/firmware/vpu/vpu_fw_imx6d.bin 	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6q.bin:system/lib/firmware/vpu/vpu_fw_imx6q.bin
+
+PRODUCT_COPY_FILES +=   \
+        device/fsl/rom_7421_a1/update.sh:system/etc/update.sh \
+        device/fsl/rom_7421_a1/startup.sh:system/etc/startup.sh
+
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
  PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/mmcblk2p5

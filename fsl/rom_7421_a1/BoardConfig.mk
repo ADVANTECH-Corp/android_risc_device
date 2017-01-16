@@ -31,6 +31,7 @@ ifneq ($(BUILD_TARGET_FS),f2fs)
 # [Advantech] We do not use BUILD_TARGET_DEVICE flag for sdcard, because it'ss a build-time solution.
 #    We adopt the same method as JB4.2, 4.3 & KK4.4. fstab can change at run-time. (reference 5.0.2)
 TARGET_RECOVERY_FSTAB = device/fsl/rom_7421_a1/fstab.freescale
+TARGET_RECOVERY_EMMC_FSTAB = device/fsl/rom_7421_a1/fstab_emmc.freescale
 
 # build for ext4
 PRODUCT_COPY_FILES +=	\
@@ -108,7 +109,7 @@ $(error "TARGET_USERIMAGES_USE_UBIFS and TARGET_USERIMAGES_USE_EXT4 config open 
 endif
 endif
 
-BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init video=mxcfb0:dev=hdmi,1920x1080M@60,bpp=32 video=mxcfb1:dev=lcd,1920x1080M@60,bpp=32 video=mxcfb2:off video=mxcfb3:off vmalloc=256M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M
+BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=256M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M
 
 ifeq ($(TARGET_USERIMAGES_USE_UBIFS),true)
 #UBI boot command line.
