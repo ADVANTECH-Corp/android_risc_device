@@ -31,12 +31,12 @@ ifneq ($(BUILD_TARGET_FS),f2fs)
 # [Advantech] We do not use BUILD_TARGET_DEVICE flag for sdcard, because it'ss a build-time solution.
 #    We adopt the same method as JB4.2, 4.3 & KK4.4. fstab can change at run-time. (reference 5.0.2)
 TARGET_RECOVERY_FSTAB = device/fsl/rsb_4411_a1/fstab.freescale
-#TARGET_RECOVERY_EMMC_FSTAB = device/fsl/imx6/etc/recovery_emmc.fstab
+TARGET_RECOVERY_EMMC_FSTAB = device/fsl/rsb_4411_a1/fstab_emmc.freescale
 #TARGET_RECOVERY_SATA_FSTAB = device/fsl/imx6/etc/recovery_sata.fstab
 # build for ext4
 PRODUCT_COPY_FILES +=	\
-	device/fsl/rsb_4411_a1/fstab.freescale:root/fstab.freescale
-#	device/fsl/rsb_4411_a1/fstab_emmc.freescale:root/fstab_emmc.freescale
+	device/fsl/rsb_4411_a1/fstab.freescale:root/fstab.freescale \
+	device/fsl/rsb_4411_a1/fstab_emmc.freescale:root/fstab_emmc.freescale
 #	device/fsl/rsb_4411_a1/fstab_sata.freescale:root/fstab_sata.freescale
 else
 TARGET_RECOVERY_FSTAB = device/fsl/rsb_4411_a1/fstab-f2fs.freescale

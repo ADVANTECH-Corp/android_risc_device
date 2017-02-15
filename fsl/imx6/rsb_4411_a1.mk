@@ -19,13 +19,17 @@ PRODUCT_DEVICE := rsb_4411_a1
 PRODUCT_COPY_FILES += \
 	device/fsl/rsb_4411_a1/init.rc:root/init.freescale.rc \
         device/fsl/rsb_4411_a1/init.i.MX6Q.rc:root/init.freescale.i.MX6Q.rc \
-        device/fsl/rsb_4411_a1/init.i.MX6DL.rc:root/init.freescale.i.MX6DL.rc \
 	device/fsl/rsb_4411_a1/audio_policy.conf:system/etc/audio_policy.conf \
 	device/fsl/rsb_4411_a1/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
 PRODUCT_COPY_FILES +=	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6d.bin:system/lib/firmware/vpu/vpu_fw_imx6d.bin 	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6q.bin:system/lib/firmware/vpu/vpu_fw_imx6q.bin
+
+PRODUCT_COPY_FILES +=   \
+        device/fsl/rom_3420_a1/update.sh:system/etc/update.sh \
+        device/fsl/rom_3420_a1/startup.sh:system/etc/startup.sh
+
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
  PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/mmcblk1p5

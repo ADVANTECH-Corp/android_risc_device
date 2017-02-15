@@ -124,10 +124,10 @@ on boot
     setprop ro.ril.wake_lock_timeout 300
 
     # Default backlight device
-    setprop hw.backlight.dev "pwm-backlight"
+    setprop hw.backlight.dev "backlight"
     # Chmod/chown FSL specific sys entry
-    chown system system /sys/class/backlight/pwm-backlight/brightness
-    chmod 0660 /sys/class/backlight/pwm-backlight/brightness
+    chown system system /sys/class/backlight/backlight/brightness
+    chmod 0660 /sys/class/backlight/backlight/brightness
 
     # Set light sensor sysfs path and light sensor threshold lux value
     setprop ro.hardware.lightsensor "/sys/class/i2c-dev/i2c-2/device/2-0044/"
@@ -315,6 +315,28 @@ service pppd_gprs /etc/ppp/init.gprs-pppd
     group radio cache inet misc
     disabled
     oneshot
+
+# offline OTA process
+service offline_otaproc /system/bin/sh /system/etc/update.sh
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.update.trigger=1
+    start offline_otaproc
+
+# startup service
+service startup_service /system/bin/sh /system/etc/startup.sh
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.startup.trigger=1
+    start startup_service
 
 on fs
 # mount ext4 partitions
