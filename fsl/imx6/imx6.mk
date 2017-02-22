@@ -346,10 +346,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_AAPT_CONFIG := normal mdpi
 
-# ril related libs
+# ril for telit 3G module
+# ril related libs 
 PRODUCT_PACKAGES += \
-	libreference-ril-zte.so \
-	libruntime-ril-port
+    libtelit-ril
 
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -376,7 +376,8 @@ PRODUCT_COPY_FILES +=	\
 	device/fsl/imx6/etc/apns-conf.xml:system/etc/apns-conf.xml \
 	device/fsl/imx6/etc/init.usb.rc:root/init.freescale.usb.rc \
 	device/fsl/imx6/etc/ueventd.freescale.rc:root/ueventd.freescale.rc \
-	device/fsl/imx6/etc/ppp/init.gprs-pppd:system/etc/ppp/init.gprs-pppd \
+	device/fsl/imx6/etc/ppp/ip-down:system/etc/ppp/ip-down \
+	device/fsl/imx6/etc/ppp/ip-up:system/etc/ppp/ip-up \
 	device/fsl/imx6/etc/ota.conf:system/etc/ota.conf \
         device/fsl/imx6/init.recovery.freescale.rc:root/init.recovery.freescale.rc \
 	device/fsl/common/display/display_mode_fb0.conf:system/etc/display_mode_fb0.conf \
