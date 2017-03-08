@@ -28,7 +28,8 @@ PRODUCT_COPY_FILES +=	\
 
 PRODUCT_COPY_FILES +=   \
         device/fsl/rom_3420_a1/update.sh:system/etc/update.sh \
-        device/fsl/rom_3420_a1/startup.sh:system/etc/startup.sh
+        device/fsl/rom_3420_a1/startup.sh:system/etc/startup.sh \
+	device/fsl/rom_3420_a1/advantech.sh:system/bin/advantech.sh
 
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
