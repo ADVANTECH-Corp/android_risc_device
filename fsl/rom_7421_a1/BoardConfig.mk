@@ -32,11 +32,13 @@ ifneq ($(BUILD_TARGET_FS),f2fs)
 #    We adopt the same method as JB4.2, 4.3 & KK4.4. fstab can change at run-time. (reference 5.0.2)
 TARGET_RECOVERY_FSTAB = device/fsl/rom_7421_a1/fstab.freescale
 TARGET_RECOVERY_EMMC_FSTAB = device/fsl/rom_7421_a1/fstab_emmc.freescale
+TARGET_RECOVERY_SD2_FSTAB = device/fsl/rom_7421_a1/fstab_sd.freescale
 
 # build for ext4
 PRODUCT_COPY_FILES +=	\
 	device/fsl/rom_7421_a1/fstab.freescale:root/fstab.freescale \
-	device/fsl/rom_7421_a1/fstab_emmc.freescale:root/fstab_emmc.freescale
+	device/fsl/rom_7421_a1/fstab_emmc.freescale:root/fstab_emmc.freescale \
+	device/fsl/rom_7421_a1/fstab_sd2.freescale:root/fstab_sd2.freescale
 else
 TARGET_RECOVERY_FSTAB = device/fsl/rom_7421_a1/fstab-f2fs.freescale
 # build for f2fs
