@@ -31,6 +31,11 @@ PRODUCT_COPY_FILES +=   \
         device/fsl/rom_3420_a1/startup.sh:system/etc/startup.sh \
 	device/fsl/rom_3420_a1/advantech.sh:system/bin/advantech.sh
 
+PRODUCT_COPY_FILES +=   \
+        device/fsl/rom_3420_a1/cust/cust_update.zip:system/cust/cust_update.zip \
+        device/fsl/rom_3420_a1/cust/cust_sysinit.sh:system/etc/cust_sysinit.sh \
+        device/fsl/rom_3420_a1/cust/cust_update.sh:system/etc/cust_update.sh
+
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
  PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/mmcblk1p5
