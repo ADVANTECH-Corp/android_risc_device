@@ -31,7 +31,7 @@ function exit_svc ()
 	
 	echo "${CUST_TAG} <exit_svc> : exit with value $value" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
 
-	if [ "$value" == "0" ] && [ "$CLEAN_BOOT" == "true" ]; then
+	if [ "$value" == "0" ] && [ "$CLEAN_BOOT" != "false" ]; then
 		setprop $CUST_FACTORY_RESET_PROP false
 
 		if [ "$?" != "0" ]; then
@@ -52,7 +52,7 @@ echo "${CUST_TAG} sysinit service start" | tee ${KERNEL_CONSOLE} | tee ${CUST_UP
 
 CLEAN_BOOT=$(getprop $CUST_FACTORY_RESET_PROP)
 
-if [ "$CLEAN_BOOT" == "true" ]; then
+if [ "$CLEAN_BOOT" != "false" ]; then
 	# parse the command file
 	while read cmdline; do	
 		property=$(echo $cmdline | cut -d '|' -f 1)

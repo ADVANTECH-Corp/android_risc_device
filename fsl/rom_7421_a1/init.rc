@@ -357,12 +357,14 @@ service custd /system/bin/custd
     class main
     user root
     group root
+    disabled
 
 service cust_sysinit /system/bin/sh /system/etc/cust_sysinit.sh
     class main
     user root
     group root
     oneshot
+    disabled
 
 service custcfg_upgrade /system/bin/sh /system/etc/cust_update.sh
     class main
@@ -370,6 +372,10 @@ service custcfg_upgrade /system/bin/sh /system/etc/cust_update.sh
     group root
     oneshot
     disabled
+
+on property:service.bootanim.exit=1
+   start custd
+   start cust_sysinit
 
 on property:sys.cust.trigger=1
     start custcfg_upgrade
@@ -384,4 +390,3 @@ on post-fs
 
     # Swap in only 1 page at a time
     write /proc/sys/vm/page-cluster 0
-
