@@ -42,6 +42,8 @@ function exit_svc ()
 		fi
 	fi
 	
+	svc power stayon false
+	
 	exit $value
 }
 
@@ -53,29 +55,39 @@ echo "${CUST_TAG} sysinit service start" | tee ${KERNEL_CONSOLE} | tee ${CUST_UP
 CLEAN_BOOT=$(getprop $CUST_FACTORY_RESET_PROP)
 
 if [ "$CLEAN_BOOT" != "false" ]; then
+	# keep system stayon awake
+	svc power stayon true
+	
 	# parse the command file
 	while read cmdline; do	
 		property=$(echo $cmdline | cut -d '|' -f 1)
 		value=$(echo $cmdline | cut -d '|' -f 2)
 
-		if [ "$value" == "eInvalid" ]; then
-			echo "${CUST_TAG} [DEFAULT] : $property []" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			setprop $property ""
-		else
-			echo "${CUST_TAG} [DEFAULT] : $property [$value]" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			setprop $property $value
-		fi
-
-		if [ "$?" != "0" ]; then
-			echo "${CUST_TAG} setprop $property failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			exit_svc 1
-		fi
+		while true
+		do
+			if [ "$value" == "eInvalid" ]; then
+				echo "${CUST_TAG} [DEFAULT] : $property []" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				setprop $property ""
+			else
+				echo "${CUST_TAG} [DEFAULT] : $property [$value]" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				setprop $property $value
+			fi
+			
+			if [ "$?" != "0" ]; then
+				echo "${CUST_TAG} setprop $property failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				continue
+			fi
+			
+			# verify the property
+			if  [ "$value" != "eInvalid" ] && [ "$(getprop $property)" != "$value" ]; then
+				echo "${CUST_TAG} verify the property $property:$value failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				continue
+			else
+				break
+			fi		
+		done
 				
-		# verify the property
-		if  [ "$value" != "eInvalid" ] && [ "$(getprop $property)" != "$value" ]; then
-			echo "${CUST_TAG} verify the property $property:$value failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			exit_svc 1
-		fi				
+		
 	done < "${CUST_LOCAL_INFO_DIR}/default.prop"
 
 	# parse the commandline
@@ -88,24 +100,29 @@ if [ "$CLEAN_BOOT" != "false" ]; then
 				property=$(echo $cmdline | cut -d '|' -f 2)
 				value=$(echo $cmdline | cut -d '|' -f 3)
 
-				if [ "$value" == "eInvalid" ]; then
-					echo "${CUST_TAG} <cmd> setprop $property []" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-					setprop $property ""
-				else
-					echo "${CUST_TAG} <cmd> setprop $property [$value]" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-					setprop $property $value
-				fi
+				while true
+				do
+					if [ "$value" == "eInvalid" ]; then
+						echo "${CUST_TAG} <cmd> : $property []" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+						setprop $property ""
+					else
+						echo "${CUST_TAG} <cmd> : $property [$value]" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+						setprop $property $value
+					fi
 				
-				if [ "$?" != "0" ]; then
-					echo "${CUST_TAG} setprop $property failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-					exit_svc 1
-				fi
+					if [ "$?" != "0" ]; then
+						echo "${CUST_TAG} setprop $property failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+						continue
+					fi
 				
-				# verify the property
-				if  [ "$value" != "eInvalid" ] && [ "$(getprop $property)" != "$value" ]; then
-					echo "${CUST_TAG} verify the property $property:$value failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-					exit_svc 1
-				fi			
+					# verify the property
+					if  [ "$value" != "eInvalid" ] && [ "$(getprop $property)" != "$value" ]; then
+						echo "${CUST_TAG} verify the property $property:$value failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+						continue
+					else
+						break
+					fi		
+				done
 				;;
 			"D")
 				file=$(echo $cmdline | cut -d '|' -f 2)

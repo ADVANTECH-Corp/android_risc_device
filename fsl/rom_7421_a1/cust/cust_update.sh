@@ -81,6 +81,8 @@ function exit_svc ()
 		fi
 	fi
 	
+	svc power stayon false
+	
 	exit $value
 }
 
@@ -136,6 +138,8 @@ while [ "$(getprop sys.cust.update.lock)" == "1" ]; do
 done
 
 setprop sys.cust.update.lock 1
+
+svc power stayon true
 
 echo "${CUST_TAG} update customization data from ${CUST_RESOURCE_DEV}" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
 
@@ -255,24 +259,29 @@ if [ "$EXTRACT_PACKAGE" == "1" ]; then
 		property=$(echo $cmdline | cut -d '|' -f 1)
 		value=$(echo $cmdline | cut -d '|' -f 2)
 
-		if [ "$value" == "eInvalid" ]; then
-			echo "${CUST_TAG} [DEFAULT] : $property []" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			setprop $property ""
-		else
-			echo "${CUST_TAG} [DEFAULT] : $property [$value]" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			setprop $property $value
-		fi
-
-		if [ "$?" != "0" ]; then
-			echo "${CUST_TAG} setprop $property failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			exit_svc 1
-		fi
-				
-		# verify the property
-		if  [ "$value" != "eInvalid" ] && [ "$(getprop $property)" != "$value" ]; then
-			echo "${CUST_TAG} verify the property $property:$value failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			exit_svc 1
-		fi				
+		while true
+		do
+			if [ "$value" == "eInvalid" ]; then
+				echo "${CUST_TAG} [DEFAULT] : $property []" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				setprop $property ""
+			else
+				echo "${CUST_TAG} [DEFAULT] : $property [$value]" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				setprop $property $value
+			fi
+			
+			if [ "$?" != "0" ]; then
+				echo "${CUST_TAG} setprop $property failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				continue
+			fi
+			
+			# verify the property
+			if  [ "$value" != "eInvalid" ] && [ "$(getprop $property)" != "$value" ]; then
+				echo "${CUST_TAG} verify the property $property:$value failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				continue
+			else
+				break
+			fi		
+		done
 	done < "${CUST_LOCAL_INFO_DIR}/default.prop"
 	
 	# parse the commandline
@@ -285,24 +294,29 @@ if [ "$EXTRACT_PACKAGE" == "1" ]; then
 				property=$(echo $cmdline | cut -d '|' -f 2)
 				value=$(echo $cmdline | cut -d '|' -f 3)
 
-				if [ "$value" == "eInvalid" ]; then
-					echo "${CUST_TAG} <cmd> setprop $property []" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-					setprop $property ""
-				else
-					echo "${CUST_TAG} <cmd> setprop $property [$value]" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-					setprop $property $value
-				fi
+				while true
+				do
+					if [ "$value" == "eInvalid" ]; then
+						echo "${CUST_TAG} <cmd> : $property []" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+						setprop $property ""
+					else
+						echo "${CUST_TAG} <cmd> : $property [$value]" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+						setprop $property $value
+					fi
 				
-				if [ "$?" != "0" ]; then
-					echo "${CUST_TAG} setprop $property failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-					exit_svc 1
-				fi
+					if [ "$?" != "0" ]; then
+						echo "${CUST_TAG} setprop $property failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+						continue
+					fi
 				
-				# verify the property
-				if  [ "$value" != "eInvalid" ] && [ "$(getprop $property)" != "$value" ]; then
-					echo "${CUST_TAG} verify the property $property:$value failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-					exit_svc 1
-				fi			
+					# verify the property
+					if  [ "$value" != "eInvalid" ] && [ "$(getprop $property)" != "$value" ]; then
+						echo "${CUST_TAG} verify the property $property:$value failed"  | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+						continue
+					else
+						break
+					fi		
+				done			
 				;;
 			"D")
 				file=$(echo $cmdline | cut -d '|' -f 2)
