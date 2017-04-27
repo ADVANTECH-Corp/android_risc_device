@@ -30,7 +30,8 @@ PRODUCT_COPY_FILES +=	\
 PRODUCT_COPY_FILES +=   \
         device/fsl/rom_7421_a1/update.sh:system/etc/update.sh \
         device/fsl/rom_7421_a1/startup.sh:system/etc/startup.sh \
-	device/fsl/rom_7421_a1/advantech.sh:system/bin/advantech.sh
+	device/fsl/rom_7421_a1/advantech.sh:system/bin/advantech.sh \
+        device/fsl/rom_7421_a1/cts.sh:system/bin/cts.sh
 
 PRODUCT_COPY_FILES +=   \
         device/fsl/rom_7421_a1/cust/cust_update.zip:system/cust/cust_update.zip \
