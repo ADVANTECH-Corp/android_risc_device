@@ -23,3 +23,5 @@ add_lunch_combo rom_7421_a1-eng
 add_lunch_combo rom_7421_a1-user
 add_lunch_combo rsb_6410_a1-eng
 add_lunch_combo rsb_6410_a1-user
+add_lunch_combo rsb_6410_a2-eng
+add_lunch_combo rsb_6410_a2-user
