@@ -366,12 +366,19 @@ PRODUCT_PACKAGES += \
     simg2img \
     busybox
 
+# [Advantech] Add Touch Calibration Tool
+PRODUCT_PACKAGES += \
+    eGalaxCalibrator
+
 PRODUCT_COPY_FILES +=	\
 	device/fsl/common/input/Dell_Dell_USB_Keyboard.kl:system/usr/keylayout/Dell_Dell_USB_Keyboard.kl \
 	device/fsl/common/input/Dell_Dell_USB_Keyboard.idc:system/usr/idc/Dell_Dell_USB_Keyboard.idc \
 	device/fsl/common/input/eGalax_Touch_Screen.idc:system/usr/idc/eGalax_Touch_Screen.idc \
 	device/fsl/common/input/eGalax_Touch_Screen.idc:system/usr/idc/HannStar_P1003_Touchscreen.idc \
 	device/fsl/common/input/eGalax_Touch_Screen.idc:system/usr/idc/Novatek_NT11003_Touch_Screen.idc \
+	device/fsl/common/input/eGTouch_v2.5.5814.A/eGalaxTouch_VirtualDevice.idc:system/usr/idc/eGalaxTouch_VirtualDevice.idc \
+	device/fsl/common/input/eGTouch_v2.5.5814.A/eGTouchA.ini:data/eGTouchA.ini \
+	device/fsl/common/input/eGTouch_v2.5.5814.A/eGTouchD:system/bin/eGTouchD \
 	system/core/rootdir/init.rc:root/init.rc \
 	device/fsl/imx6/etc/apns-conf.xml:system/etc/apns-conf.xml \
 	device/fsl/imx6/etc/init.usb.rc:root/init.freescale.usb.rc \
