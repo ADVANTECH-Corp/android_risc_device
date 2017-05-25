@@ -9,6 +9,10 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a9
 ARCH_ARM_HAVE_TLS_REGISTER := true
+# [Advantech] Add for Advantech features
+ADV_ALLOW_ROOT_FOR_APP := true
+ADV_ALLOW_ROOT_IN_USER_BUILD := true
+ADV_SELECT_FS_DEVICE := true
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false

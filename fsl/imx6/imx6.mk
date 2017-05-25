@@ -306,9 +306,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_AAPT_CONFIG := normal mdpi
 
-# ril related libs
+# ril for telit 3G module
+# ril related libs 
 PRODUCT_PACKAGES += \
-	libruntime-ril-port
+    libtelit-ril
 
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -320,6 +321,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fsck.f2fs mkfs.f2fs
 
+# eMMC download
+PRODUCT_PACKAGES += \
+    simg2img \
+    busybox
+
 PRODUCT_COPY_FILES +=	\
 	device/fsl/common/input/Dell_Dell_USB_Keyboard.kl:system/usr/keylayout/Dell_Dell_USB_Keyboard.kl \
 	device/fsl/common/input/Dell_Dell_USB_Keyboard.idc:system/usr/idc/Dell_Dell_USB_Keyboard.idc \
@@ -330,7 +336,8 @@ PRODUCT_COPY_FILES +=	\
 	device/fsl/imx6/etc/apns-conf.xml:system/etc/apns-conf.xml \
 	device/fsl/imx6/etc/init.usb.rc:root/init.freescale.usb.rc \
 	device/fsl/imx6/etc/ueventd.freescale.rc:root/ueventd.freescale.rc \
-	device/fsl/imx6/etc/ppp/init.gprs-pppd:system/etc/ppp/init.gprs-pppd \
+	device/fsl/imx6/etc/ppp/ip-down:system/etc/ppp/ip-down \
+	device/fsl/imx6/etc/ppp/ip-up:system/etc/ppp/ip-up \
 	device/fsl/imx6/etc/ota.conf:system/etc/ota.conf \
         device/fsl/imx6/init.recovery.freescale.rc:root/init.recovery.freescale.rc \
     device/fsl-proprietary/media-profile/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
