@@ -27,8 +27,8 @@ PRODUCT_COPY_FILES +=	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6q.bin:system/lib/firmware/vpu/vpu_fw_imx6q.bin
 
 PRODUCT_COPY_FILES +=   \
-        device/fsl/rom_3420_a1/update.sh:system/etc/update.sh \
-        device/fsl/rom_3420_a1/startup.sh:system/etc/startup.sh
+        device/fsl/rsb_4411_a1/update.sh:system/etc/update.sh \
+        device/fsl/rsb_4411_a1/startup.sh:system/etc/startup.sh
 
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
