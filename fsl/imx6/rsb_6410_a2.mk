@@ -19,6 +19,7 @@ PRODUCT_DEVICE := rsb_6410_a2
 PRODUCT_COPY_FILES += \
 	device/fsl/rsb_6410_a2/init.rc:root/init.freescale.rc \
         device/fsl/rsb_6410_a2/init.i.MX6Q.rc:root/init.freescale.i.MX6Q.rc \
+        device/fsl/rsb_6410_a2/advantech.sh:system/bin/advantech.sh \
 	device/fsl/rsb_6410_a2/audio_policy.conf:system/etc/audio_policy.conf \
 	device/fsl/rsb_6410_a2/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
