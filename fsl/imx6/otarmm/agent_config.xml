@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLConfigSettings>
+  <BaseSettings>
+    <RunMode>Standalone</RunMode>
+    <AutoReconnect>True</AutoReconnect>
+    <ServerIP>172.21.73.112</ServerIP>
+    <ServerPort>1883</ServerPort>
+    <ConnAuth>fENl4B7tnuwpIbs61I5xJQ==</ConnAuth>
+    <TLSType>0</TLSType>
+    <CAFile/>
+    <CAPath/>
+    <CertFile/>
+    <KeyFile/>
+    <CertPW/>
+    <PSK>05155853</PSK>
+    <PSKIdentify/>
+    <PSKCiphers/>
+  <AutoStart>True</AutoStart></BaseSettings>
+  <Profiles>
+    <DeviceName>rom7421</DeviceName>
+    <DevID>000000190F2A51F5</DevID>
+    <SN>00190F2A51F5</SN>
+    <DevType>IPC</DevType>
+    <WorkDir>/cache/Output_Android_OTA_AGENT</WorkDir>
+    <SWVersion>3.2.13.1</SWVersion>
+    <UserName>anonymous</UserName>
+    <UserPassword/>
+    <Product/>
+    <Manufacture/>
+  </Profiles>
+  <Customize>
+    <AmtEn>False</AmtEn>
+    <AmtID/>
+    <AmtPwd/>
+    <KVMMode/>
+    <CustVNCPwd/>
+    <CustVNCPort>5900</CustVNCPort>
+    <ServiceName>saagent</ServiceName>
+    <WOL>TRUE</WOL>
+    <Shutdown>TRUE</Shutdown>
+    <Restart>TRUE</Restart>
+    <ProcessGatherLevel>1</ProcessGatherLevel>
+    <SystemLogonUser/>
+  </Customize>
+</XMLConfigSettings>

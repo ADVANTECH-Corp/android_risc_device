@@ -38,6 +38,50 @@ PRODUCT_COPY_FILES +=   \
         device/fsl/rom_7421_a1/cust/cust_sysinit.sh:system/etc/cust_sysinit.sh \
         device/fsl/rom_7421_a1/cust/cust_update.sh:system/etc/cust_update.sh
 
+
+# libs for otasue
+PRODUCT_COPY_FILES += \
+        device/fsl/imx6/otasue/libcomm.so:system/lib/libcomm.so \
+        device/fsl/imx6/otasue/libfileTransfer.so:system/lib/libfileTransfer.so \
+        device/fsl/imx6/otasue/libminiUnzip.so:system/lib/libminiUnzip.so \
+        device/fsl/imx6/otasue/libotacrypto.so:system/lib/libotacrypto.so \
+        device/fsl/imx6/otasue/libpaho-mqtt3c.so:system/lib/libpaho-mqtt3c.so \
+        device/fsl/imx6/otasue/libsueClientCore.so:system/lib/libsueClientCore.so \
+        device/fsl/imx6/otasue/libsueClient.so:system/lib/libsueClient.so
+
+# libs for otarmm
+PRODUCT_COPY_FILES += \
+        device/fsl/imx6/otarmm/libAdvCareHelper.so:system/lib/libAdvCareHelper.so \
+        device/fsl/imx6/otarmm/libAdvJSON.so:system/lib/libAdvJSON.so \
+	device/fsl/imx6/otarmm/libAdvLog.so:system/lib/libAdvLog.so \
+	device/fsl/imx6/otarmm/libFTPHelper.so:system/lib/libFTPHelper.so \
+	device/fsl/imx6/otarmm/libLog.so:system/lib/libLog.so \
+	device/fsl/imx6/otarmm/libMessageGenerator.so:system/lib/libMessageGenerator.so \
+	device/fsl/imx6/otarmm/libMQTTHelper.so:system/lib/libMQTTHelper.so \
+	device/fsl/imx6/otarmm/libReadINI.so:system/lib/libReadINI.so \
+	device/fsl/imx6/otarmm/libRMMPlatform.so:system/lib/libRMMPlatform.so \
+	device/fsl/imx6/otarmm/libSAClient.so:system/lib/libSAClient.so \
+	device/fsl/imx6/otarmm/libSAConfig.so:system/lib/libSAConfig.so \
+	device/fsl/imx6/otarmm/libSAGatherInfo.so:system/lib/libSAGatherInfo.so \
+	device/fsl/imx6/otarmm/libSQFlashHelper.so:system/lib/libSQFlashHelper.so \
+	device/fsl/imx6/otarmm/libSUSIHelper.so:system/lib/libSUSIHelper.so
+
+# other file for otarmm
+PRODUCT_COPY_FILES += \
+        device/fsl/imx6/otarmm/agent_config.xml:system/lib/agent_config.xml \
+	device/fsl/imx6/otarmm/AgentEncrypt:system/lib/AgentEncrypt \
+	device/fsl/imx6/otarmm/cagent:system/lib/cagent \
+	device/fsl/imx6/otarmm/libSAGeneralHandler.so:system/lib/libSAGeneralHandler.so \
+	device/fsl/imx6/otarmm/libSAHandlerLoader.so:system/lib/libSAHandlerLoader.so \
+	device/fsl/imx6/otarmm/libSAManager.so:system/lib/libSAManager.so \
+	device/fsl/imx6/otarmm/module/libOTAHandler.so:system/lib/module/libOTAHandler.so \
+	device/fsl/imx6/otarmm/module/module_config.xml:system/lib/module/module_config.xml \
+	device/fsl/imx6/otarmm/ModuleMerge:system/lib/ModuleMerge \
+	device/fsl/imx6/otarmm/otaup.sh:system/etc/otaup.sh \
+	device/fsl/imx6/otarmm/servertest:system/bin/servertest \
+	device/fsl/imx6/otarmm/sawatchdog:system/lib/sawatchdog 
+	
+
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
  PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/mmcblk2p5

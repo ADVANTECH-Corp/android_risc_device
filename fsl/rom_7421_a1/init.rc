@@ -330,6 +330,15 @@ service pppd_gprs /etc/ppp/init.gprs-pppd
     disabled
     oneshot
 
+service otaagent_startup /system/bin/sh /system/etc/otaup.sh
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+on property:sys.boot_completed=1
+    start otaagent_startup
+
 # offline OTA process
 service offline_otaproc /system/bin/sh /system/etc/update.sh
     class main
