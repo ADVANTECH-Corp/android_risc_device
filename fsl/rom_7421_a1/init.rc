@@ -303,6 +303,7 @@ service advantech_script /system/bin/advantech.sh
     user root
     group root
     oneshot
+    seclabel u:r:advantech_script:s0
 
 
 service iprenew_bt-pan /system/bin/dhcpcd -n bt-pan
@@ -346,6 +347,7 @@ service offline_otaproc /system/bin/sh /system/etc/update.sh
     group root
     disabled
     oneshot
+    seclabel u:r:offline_otaproc:s0
 
 on property:sys.update.trigger=1
     start offline_otaproc
@@ -357,6 +359,7 @@ service startup_service /system/bin/sh /system/etc/startup.sh
     group root
     disabled
     oneshot
+    seclabel u:r:startup_service:s0
 
 on property:sys.startup.trigger=1
     start startup_service
