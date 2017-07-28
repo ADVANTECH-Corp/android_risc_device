@@ -23,6 +23,12 @@ PRODUCT_COPY_FILES += \
 	device/fsl/rsb_6410_a2/audio_policy.conf:system/etc/audio_policy.conf \
 	device/fsl/rsb_6410_a2/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
+# wifi driver install
+PRODUCT_COPY_FILES +=	\
+	device/fsl/rsb_6410_a2/wifi/bcmdhd.ko:/system/lib/module/bcmdhd.ko \
+	device/fsl/rsb_6410_a2/wifi/43241b4.bin:/system/etc/firmware/43241b4.bin \
+	device/fsl/rsb_6410_a2/wifi/bcm943241ng1630_p252.txt:/system/etc/firmware/bcm943241ng1630_p252.txt
+
 PRODUCT_COPY_FILES +=	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6d.bin:system/lib/firmware/vpu/vpu_fw_imx6d.bin 	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6q.bin:system/lib/firmware/vpu/vpu_fw_imx6q.bin

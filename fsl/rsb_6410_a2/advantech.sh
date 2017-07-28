@@ -1,5 +1,7 @@
 #!/system/bin/sh
 
+insmod /system/lib/module/bcmdhd.ko firmware_path=/system/etc/firmware/43241b4.bin nvram_path=/system/etc/firmware/bcm943241ng1630_p252.txt iface_name=wlan
+
 logFile=/data/bootCount.tt
 adv_hctosys_sleep_time=7200
 
