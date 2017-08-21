@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<XMLConfigSettings><BaseSettings>
+<ModuleNum>4</ModuleNum>
+<ModuleName1>PowerOnOffHandler</ModuleName1><ModulePath1>module/PowerOnOffHandler.so</ModulePath1><ModuleEnable1>FALSE</ModuleEnable1>
+<ModuleName2>ProcessMonitorHandler</ModuleName2><ModulePath2>module/ProcessMonitorHandler.so</ModulePath2><ModuleEnable2>FALSE</ModuleEnable2>
+<ModuleName3>RemoteKVMHandler</ModuleName3><ModulePath3>module/RemoteKVMHandler.so</ModulePath3><ModuleEnable3>FALSE</ModuleEnable3>
+<ModuleName4>OTAHandler</ModuleName4><ModulePath4>module/libotahandler.so</ModulePath4><ModuleEnable4>TRUE</ModuleEnable4>
+</BaseSettings></XMLConfigSettings>
