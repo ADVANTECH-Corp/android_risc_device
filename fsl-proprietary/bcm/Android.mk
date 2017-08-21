@@ -160,14 +160,23 @@ LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
 ifneq ($(BOARD_HAVE_BLUETOOTH_BCM),)
-	include $(CLEAR_VARS)
-	LOCAL_MODULE := Type_ZP.hcd
-	LOCAL_MODULE_TAGS := optional
-	LOCAL_MODULE_CLASS := EXECUTABLES
-	LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/firmware/bcm
-	LOCAL_SRC_FILES := Type_ZP.hcd
-	include $(BUILD_PREBUILT)
+ifeq ($(TARGET_PRODUCT), rsb_6410_a2)
+include $(CLEAR_VARS)
+LOCAL_MODULE := bcm43241b4.hcd
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/firmware/bcm
+LOCAL_SRC_FILES := bcm43241b4.hcd
+include $(BUILD_PREBUILT)
+else
+include $(CLEAR_VARS)
+LOCAL_MODULE := Type_ZP.hcd
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/firmware/bcm
+LOCAL_SRC_FILES := Type_ZP.hcd
+include $(BUILD_PREBUILT)
 endif
-
+endif
 
 endif

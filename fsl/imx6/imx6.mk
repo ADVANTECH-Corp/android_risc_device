@@ -67,6 +67,7 @@ PRODUCT_PACKAGES += freescale-extended 		\
 # Broadcom firmwares
 PRODUCT_PACKAGES += \
 	Type_ZP.hcd   	\
+        bcm43241b4.hcd  \
 	bt_vendor.conf	\
 	bcmdhd.cal		\
 	fw_bcmdhd.bin	\
