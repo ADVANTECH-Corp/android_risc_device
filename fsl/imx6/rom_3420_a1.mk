@@ -47,6 +47,7 @@ PRODUCT_COPY_FILES += \
 	device/fsl/imx6/otaagent-android/OTA-Agent/module/libotahandler.so:system/lib/OTA-Agent/module/libotahandler.so \
 	device/fsl/imx6/otaagent-android/OTA-Agent/module/module_config.xml:system/lib/OTA-Agent/module/module_config.xml \
 	device/fsl/imx6/otaagent-android/OTA-Agent/ota-agent:system/lib/OTA-Agent/ota-agent \
+	device/fsl/imx6/otaagent-android/servertest:system/bin/servertest \
 	device/fsl/imx6/otaagent-android/otaup.sh:system/etc/otaup.sh
 	
 
