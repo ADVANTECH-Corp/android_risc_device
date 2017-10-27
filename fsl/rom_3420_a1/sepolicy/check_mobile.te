@@ -1,0 +1,2 @@
+type check_mobile, domain, domain_deprecated;
+type check_mobile_exec, exec_type, file_type;

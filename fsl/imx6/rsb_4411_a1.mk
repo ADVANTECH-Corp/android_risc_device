@@ -36,6 +36,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES +=	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6d.bin:system/lib/firmware/vpu/vpu_fw_imx6d.bin 	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6q.bin:system/lib/firmware/vpu/vpu_fw_imx6q.bin
+
+PRODUCT_COPY_FILES +=   \
+        device/fsl/rsb_4411_a1/update.sh:system/etc/update.sh \
+        device/fsl/rsb_4411_a1/startup.sh:system/etc/startup.sh \
+	device/fsl/rsb_4411_a1/advantech.sh:system/bin/advantech.sh
+
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
  PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/mmcblk1p5
@@ -63,6 +69,7 @@ frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissio
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
 	frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
+	device/fsl/rsb_4411_a1/check_mobile.sh:/system/bin/check_mobile.sh \
 	device/fsl/rsb_4411_a1/required_hardware.xml:system/etc/permissions/required_hardware.xml
 
 PRODUCT_COPY_FILES += \

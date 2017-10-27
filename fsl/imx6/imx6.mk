@@ -309,7 +309,8 @@ PRODUCT_AAPT_CONFIG := normal mdpi
 # ril for telit 3G module
 # ril related libs 
 PRODUCT_PACKAGES += \
-    libtelit-ril
+    libtelit-ril \
+    libquectel-ril
 
 PRODUCT_PACKAGES += \
     charger_res_images \

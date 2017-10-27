@@ -70,6 +70,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
 	frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
+	device/fsl/rom_7421_a1/check_mobile.sh:/system/bin/check_mobile.sh \
 	device/fsl/rom_7421_a1/required_hardware.xml:system/etc/permissions/required_hardware.xml
 
 PRODUCT_COPY_FILES += \
