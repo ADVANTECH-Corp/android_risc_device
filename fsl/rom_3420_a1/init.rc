@@ -383,6 +383,17 @@ service custcfg_upgrade /system/bin/sh /system/etc/cust_update.sh
 
 on property:sys.cust.trigger=1
     start custcfg_upgrade
+    
+on property:persist.aim.trigger=true
+    start daemoncmd
+
+on property:persist.aim.trigger=""
+    stop daemoncmd
+
+service daemoncmd /system/bin/suaim
+    user root
+    group shell
+    disabled
 
 on fs
 # mount ext4 partitions
