@@ -85,7 +85,13 @@ PRODUCT_PACKAGES += AudioRoute \
 
 # Package Settings List.
 PRODUCT_COPY_FILES += \
-    device/fsl/rom_7421_a1/suaim:/system/bin/suaim \
-    device/fsl/rom_7421_a1/PSLAIM:system/etc/PSLAIM \
-    device/fsl/rom_7421_a1/absolutePackageName:system/etc/absolutePackageName
+	device/fsl/rom_7421_a1/suaim:/system/bin/suaim \
+	device/fsl/rom_7421_a1/PSLAIM:system/etc/PSLAIM \
+	device/fsl/rom_7421_a1/absolutePackageName:system/etc/absolutePackageName
 
+PRODUCT_PACKAGES += \
+	ArgusSysAlarm \
+	ArgusShellCommand \
+	ArgusGetDeviceStatus \
+	ArgusBlackwhitelistcontroller \
+	ArgusAgentPro
