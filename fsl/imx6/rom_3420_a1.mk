@@ -27,10 +27,11 @@ PRODUCT_COPY_FILES +=	\
 	external/linux-firmware-imx/firmware/vpu/vpu_fw_imx6q.bin:system/lib/firmware/vpu/vpu_fw_imx6q.bin
 
 PRODUCT_COPY_FILES +=   \
-        device/fsl/rom_3420_a1/update.sh:system/etc/update.sh \
-        device/fsl/rom_3420_a1/startup.sh:system/etc/startup.sh \
+	device/fsl/rom_3420_a1/update.sh:system/etc/update.sh \
+	device/fsl/rom_3420_a1/startup.sh:system/etc/startup.sh \
 	device/fsl/rom_3420_a1/advantech.sh:system/bin/advantech.sh \
-        device/fsl/rom_7421_a1/cts.sh:system/bin/cts.sh
+	device/fsl/rom_7421_a1/cts.sh:system/bin/cts.sh \
+	device/fsl/rom_7421_a1/init.setadmin.sh:system/bin/init.setadmin.sh
 
 PRODUCT_COPY_FILES +=   \
         device/fsl/rom_3420_a1/cust/cust_update.zip:system/cust/cust_update.zip \
