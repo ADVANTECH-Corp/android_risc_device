@@ -95,3 +95,7 @@ PRODUCT_PACKAGES += \
 	ArgusGetDeviceStatus \
 	ArgusBlackwhitelistcontroller \
 	ArgusAgentPro
+
+# Package AdvSdkDemo
+PRODUCT_PACKAGES += \
+	AdvSdkDemo
