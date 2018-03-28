@@ -94,7 +94,8 @@ PRODUCT_PACKAGES += \
 	ArgusShellCommand \
 	ArgusGetDeviceStatus \
 	ArgusBlackwhitelistcontroller \
-	ArgusAgentPro
+	ArgusAgentPro \
+	ArgusSetTimer
 
 # Package AdvSdkDemo
 PRODUCT_PACKAGES += \
