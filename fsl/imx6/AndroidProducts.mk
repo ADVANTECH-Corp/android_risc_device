@@ -37,4 +37,5 @@ PRODUCT_MAKEFILES := \
   $(LOCAL_DIR)/rsb_4411_a1.mk \
   $(LOCAL_DIR)/rom_3420_a1.mk \
   $(LOCAL_DIR)/rom_7421_a1.mk \
-  $(LOCAL_DIR)/rsb_6410_a1.mk
+  $(LOCAL_DIR)/rsb_6410_a1.mk \
+  $(LOCAL_DIR)/ubc_220_a1.mk
