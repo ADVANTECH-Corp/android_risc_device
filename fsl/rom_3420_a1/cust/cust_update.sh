@@ -249,8 +249,19 @@ if [ "$EXTRACT_PACKAGE" == "1" ]; then
 				continue
 			fi
 			
-			echo "${CUST_TAG} update file $cust_local_item" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
-			cp -f $cust_update_item $cust_local_item
+			if [[ "$cust_update_item" = *.apk ]]; then
+				if [ -f $cust_update_item ]; then
+					echo "${CUST_TAG} install apk : $cust_update_item" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+					cp -f $cust_update_item "/cache"
+					apk=/cache/$(basename -- "$cust_update_item")
+					chmod 777 $apk
+					pm install -r $apk
+					rm $apk
+				fi
+			else
+				echo "${CUST_TAG} update file $cust_local_item" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+				cp -f $cust_update_item $cust_local_item
+			fi
 		done
 	fi
 	
