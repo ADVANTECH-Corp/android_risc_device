@@ -118,6 +118,8 @@ ifeq ($(TARGET_USERIMAGES_USE_UBIFS),true)
 BOARD_KERNEL_CMDLINE +=  mtdparts=gpmi-nand:16m(bootloader),16m(bootimg),128m(recovery),-(root) gpmi_debug_init ubi.mtd=3
 endif
 
+TARGET_KERNEL_MODULES := \
+       kernel_imx/drivers/bluetooth/rtk_btusb.ko:system/lib/modules/rtk_btusb.ko
 
 # Broadcom BCM4339 BT
 #BOARD_HAVE_BLUETOOTH_BCM := true

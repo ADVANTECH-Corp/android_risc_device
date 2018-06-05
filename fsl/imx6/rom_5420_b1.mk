@@ -3,6 +3,8 @@
 
 $(call inherit-product, device/fsl/imx6/imx6.mk)
 $(call inherit-product-if-exists,vendor/google/products/gms.mk)
+# rtkbt
+$(call inherit-product, device/fsl/imx6/rtkbt/rtkbt.mk)
 
 ifneq ($(wildcard device/fsl/rom_5420_b1/fstab_nand.freescale),)
 $(shell touch device/fsl/rom_5420_b1/fstab_nand.freescale)

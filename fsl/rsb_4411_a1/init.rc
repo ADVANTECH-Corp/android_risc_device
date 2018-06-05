@@ -87,6 +87,25 @@ on boot
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
     write /sys/class/rfkill/rfkill0/state 0
 
+#RTK BLUETOOTH START
+    # Bluetooth
+    # change back to bluetooth from system
+    chown bluetooth net_bt_stack /data/misc/bluetooth
+    mkdir /data/misc/bluedroid 0770 bluetooth net_bt_stack
+
+    # Bluetooth MAC address programming
+    chown bluetooth net_bt_stack ro.bt.bdaddr_path
+    chown bluetooth net_bt_stack /system/etc/bluetooth
+    chown bluetooth net_bt_stack /data/misc/bluetooth
+    setprop ro.bt.bdaddr_path "/data/misc/bluetooth/bdaddr"
+
+    # USB device
+    insmod /system/lib/modules/rtk_btusb.ko
+    wait /dev/rtk_btusb
+    chmod 0660 /dev/rtk_btusb
+    chown bluetooth net_bt_stack /dev/rtk_btusb
+#RTK BLUETOOTH END
+
     # Prepare for RIL
 # === for telti 3g remove setting ==============
     setprop gsm.ril.delay 15

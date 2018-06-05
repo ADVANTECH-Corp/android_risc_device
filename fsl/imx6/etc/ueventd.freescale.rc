@@ -11,6 +11,7 @@
 /dev/mxc_ipu              0660   media      system
 /dev/mxc_vpu              0660   media      system
 /dev/uinput               0660   system     net_bt_stack
+/dev/rtk_btusb            0660   bluetooth  net_bt_stack
 /dev/ion                  0666   media      system
 /dev/galcore	          0666 	 system     graphics
 /dev/graphics/fb0         0660   system     graphics
