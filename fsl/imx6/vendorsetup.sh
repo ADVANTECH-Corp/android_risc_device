@@ -27,3 +27,5 @@ add_lunch_combo rsb_6410_a2-eng
 add_lunch_combo rsb_6410_a2-user
 add_lunch_combo rom_5420_b1-eng
 add_lunch_combo rom_5420_b1-user
+add_lunch_combo epcrs_200_a1-eng
+add_lunch_combo epcrs_200_a1-user
