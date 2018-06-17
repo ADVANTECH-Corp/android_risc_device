@@ -135,7 +135,7 @@ IMX_CAMERA_HAL_V3 := true
 IMX6_CONSUMER_IR_HAL := false
 
 TARGET_BOOTLOADER_CONFIG := imx6q:mx6qepcrs200a1android_1G_defconfig
-TARGET_BOARD_DTS_CONFIG := imx6q:imx6q-epcrs-200-a1.dtb
+TARGET_BOARD_DTS_CONFIG := imx6q:imx6q-epcrs200-a1.dtb
 TARGET_KERNEL_DEFCONF := imx_v7_adv_android_defconfig
 
 BOARD_SEPOLICY_DIRS := \
