@@ -29,3 +29,5 @@ add_lunch_combo rom_5420_b1-eng
 add_lunch_combo rom_5420_b1-user
 add_lunch_combo epcrs_200_a1-eng
 add_lunch_combo epcrs_200_a1-user
+add_lunch_combo ubc_220_a1-eng
+add_lunch_combo ubc_220_a1-user
