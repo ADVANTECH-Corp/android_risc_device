@@ -100,4 +100,5 @@ PRODUCT_PACKAGES += \
 
 # Package AdvSdkDemo
 PRODUCT_PACKAGES += \
+	advservice \
 	AdvSdkDemo

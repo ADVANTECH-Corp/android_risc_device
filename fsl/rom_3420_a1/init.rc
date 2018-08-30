@@ -252,6 +252,14 @@ service magd /system/bin/magd
     group input
     oneshot
 
+service advservice /system/bin/advservice
+    class main
+    socket advsock stream 666 root root
+	disabled
+    oneshot
+on property:persist.adv.service.advservice="on"
+    start advservice
+
 service charger /charger
     class charger
 
