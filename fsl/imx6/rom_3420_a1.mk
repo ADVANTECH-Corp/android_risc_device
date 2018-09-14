@@ -50,7 +50,11 @@ PRODUCT_COPY_FILES += \
 	device/fsl/imx6/otaagent-android/OTA-Agent/ota-agent:system/lib/OTA-Agent/ota-agent \
 	device/fsl/imx6/otaagent-android/servertest:system/bin/servertest \
 	device/fsl/imx6/otaagent-android/otaup.sh:system/etc/otaup.sh
-	
+
+# add openssl tool
+PRODUCT_COPY_FILES +=   \
+        device/fsl/rom_3420_a1/security/openssl:system/bin/openssl \
+        device/fsl/rom_3420_a1/security/public.pem:system/etc/public.pem
 
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
