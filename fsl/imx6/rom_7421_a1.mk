@@ -52,6 +52,11 @@ PRODUCT_COPY_FILES += \
 	device/fsl/imx6/otaagent-android/otaup.sh:system/etc/otaup.sh
 	
 
+# add openssl tool
+PRODUCT_COPY_FILES +=   \
+        device/fsl/rom_7421_a1/security/openssl:system/bin/openssl \
+        device/fsl/rom_7421_a1/security/public.pem:system/etc/public.pem
+
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
  PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/mmcblk2p5

@@ -50,6 +50,9 @@ EXTRACT_RESULT=0
 WORK_DIR_PUSH=""
 WORK_DIR_POP=""
 
+# for decode workdir
+DECODE_TMP_DIR="/cache/decodetemp"
+
 function pushd ()
 {
 	WORK_DIR_PUSH=$1
@@ -153,6 +156,30 @@ echo "${CUST_TAG} update customization data from ${CUST_RESOURCE_DEV}" | tee ${K
 CUST_LOCAL_INFO_VERSION="$(cat ${CUST_LOCAL_INFO_DIR}/version)"
 
 CUST_UPDATE_SOURCE_PACKAGE="${CUST_UPDATE_SOURCE_DIR}/cust/cust_update.zip"
+# for decode begin
+mkdir -p ${DECODE_TMP_DIR}
+pushd ${DECODE_TMP_DIR}
+    rm -rf workspace
+    mkdir -p workspace && cd workspace
+    cp -rfa ${CUST_UPDATE_SOURCE_PACKAGE_ORIG} ./cust_update-new.zip
+    busybox unzip cust_update-new.zip
+    openssl rsautl -verify -pubin -inkey /system/etc/public.pem -in Key -out Key-orig
+    deskey=`cat Key-orig | cut -c 1-10`
+    zipmd5=`cat Key-orig | cut -c 11-`
+    echo "${CUST_TAG} deskey: ${deskey}" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+    echo "${CUST_TAG} zipmd5: ${zipmd5}" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+    openssl enc -des-ede3-cbc -d -in Signed.bin -out cust_update.zip -pass pass:${deskey}
+    nowmd5=`busybox md5sum cust_update.zip| cut -d ' ' -f 1`
+    echo "${CUST_TAG} actzipmd5: ${nowmd5}" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+    if [ "$zipmd5" == "$nowmd5" ]; then
+        echo "${CUST_TAG} cust_update.zip decode and validate ok" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+    	CUST_UPDATE_SOURCE_PACKAGE=${DECODE_TMP_DIR}/workspace/cust_update.zip
+	else
+        echo "${CUST_TAG} cust_update.zip validate fail" | tee ${KERNEL_CONSOLE} | tee -a ${CUST_UPDATE_LOG}
+        exit_svc 1
+    fi
+popd
+# for decode end
 CUST_PROJECT_LIST=$(busybox unzip -l ${CUST_UPDATE_SOURCE_PACKAGE} | busybox awk '{print $4}' | sed -e '/^Name/d' -e '/^\-/d' -e '/^$/d' -e '/^.*\/..*/d' | cut -d / -f 1)
 
 # =========================================================================================================================================================== #
@@ -256,6 +283,7 @@ if [ "$EXTRACT_PACKAGE" == "1" ]; then
 					apk=/cache/$(basename -- "$cust_update_item")
 					chmod 777 $apk
 					pm install -r $apk
+					cp -f $cust_update_item $cust_local_item
 					rm $apk
 				fi
 			else
