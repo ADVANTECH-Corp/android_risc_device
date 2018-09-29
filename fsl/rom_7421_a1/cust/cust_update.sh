@@ -155,7 +155,7 @@ echo "${CUST_TAG} update customization data from ${CUST_RESOURCE_DEV}" | tee ${K
 # device dependent environment setup
 CUST_LOCAL_INFO_VERSION="$(cat ${CUST_LOCAL_INFO_DIR}/version)"
 
-CUST_UPDATE_SOURCE_PACKAGE="${CUST_UPDATE_SOURCE_DIR}/cust/cust_update.zip"
+CUST_UPDATE_SOURCE_PACKAGE_ORIG="${CUST_UPDATE_SOURCE_DIR}/cust/cust_update.zip"
 # for decode begin
 mkdir -p ${DECODE_TMP_DIR}
 pushd ${DECODE_TMP_DIR}
