@@ -41,5 +41,6 @@ PRODUCT_MAKEFILES := \
   $(LOCAL_DIR)/rsb_6410_a1.mk \
   $(LOCAL_DIR)/rsb_6410_a2.mk \
   $(LOCAL_DIR)/rom_5420_b1.mk \
+  $(LOCAL_DIR)/rsb_3430_a1.mk \
   $(LOCAL_DIR)/epcrs_200_a1.mk \
   $(LOCAL_DIR)/ubc_220_a1.mk
