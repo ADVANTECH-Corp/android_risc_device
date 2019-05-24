@@ -49,7 +49,38 @@ PRODUCT_COPY_FILES += \
 	device/fsl/imx6/otaagent-android/OTA-Agent/module/module_config.xml:system/lib/OTA-Agent/module/module_config.xml \
 	device/fsl/imx6/otaagent-android/OTA-Agent/ota-agent:system/lib/OTA-Agent/ota-agent \
 	device/fsl/imx6/otaagent-android/otaup.sh:system/etc/otaup.sh
-	
+
+## add rmm for android
+PRODUCT_COPY_FILES += \
+	device/fsl/imx6/rmm/module/libOTAHandler.so:system/lib/module/libOTAHandler.so \
+	device/fsl/imx6/rmm/module/libServiceHandler.so:system/lib/module/libServiceHandler.so \
+	device/fsl/imx6/rmm/module/libMonitoringHandler.so:system/lib/module/libMonitoringHandler.so \
+	device/fsl/imx6/rmm/module/libTerminalHandler.so:system/lib/module/libTerminalHandler.so \
+	device/fsl/imx6/rmm/module/libPowerOnOffHandler.so:system/lib/module/libPowerOnOffHandler.so \
+	device/fsl/imx6/rmm/module/libsueclient.so:system/lib/module/libsueclient.so \
+	device/fsl/imx6/rmm/module/libNetMonitorHandler.so:system/lib/module/libNetMonitorHandler.so \
+	device/fsl/imx6/rmm/module/libSUSIControlHandler.so:system/lib/module/libSUSIControlHandler.so \
+	device/fsl/imx6/rmm/module/libScreenshotHandler.so:system/lib/module/libScreenshotHandler.so \
+	device/fsl/imx6/rmm/module/libProcessMonitorHandler.so:system/lib/module/libProcessMonitorHandler.so \
+	device/fsl/imx6/rmm/module/libRemoteKVMHandler.so:system/lib/module/libRemoteKVMHandler.so \
+	device/fsl/imx6/rmm/module/libDroidRootHandler.so:system/lib/module/libDroidRootHandler.so \
+	device/fsl/imx6/rmm/module/module_config.xml:system/lib/module/module_config.xml \
+	device/fsl/imx6/rmm/VNC/androidvncserver:system/lib/VNC/androidvncserver \
+	device/fsl/imx6/rmm/libEIServiceSDK.so:system/lib/libEIServiceSDK.so \
+	device/fsl/imx6/rmm/libEIServiceSDK_RuleEngine.so:system/lib/libEIServiceSDK_RuleEngine.so \
+	device/fsl/imx6/rmm/libSAHandlerLoader.so:system/lib/libSAHandlerLoader.so \
+	device/fsl/imx6/rmm/libSAGeneralHandler.so:system/lib/libSAGeneralHandler.so \
+	device/fsl/imx6/rmm/libDataSync.so:system/lib/libDataSync.so \
+	device/fsl/imx6/rmm/DataSync.ini:system/lib/DataSync.ini \
+	device/fsl/imx6/rmm/libRuleEngine.so:system/lib/libRuleEngine.so \
+	device/fsl/imx6/rmm/libSAManager.so:system/lib/libSAManager.so \
+	device/fsl/imx6/rmm/EIServiceConfig.ini:system/bin/EIServiceConfig.ini \
+	device/fsl/imx6/rmm/CredentialChecker:system/lib/CredentialChecker \
+	device/fsl/imx6/rmm/cagent:system/bin/cagent \
+	device/fsl/imx6/rmm/log.ini:system/bin/log.ini \
+	device/fsl/imx6/rmm/agent_config.xml:system/bin/agent_config.xml \
+	device/fsl/imx6/rmm/netInfo.sh:system/etc/netInfo.sh \
+	device/fsl/imx6/rmm/rmm_start.sh:system/bin/rmm_start.sh
 
 # setup dm-verity configs.
 ifneq ($(BUILD_TARGET_DEVICE),sd)
