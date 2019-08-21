@@ -330,14 +330,14 @@ service pppd_gprs /etc/ppp/init.gprs-pppd
     disabled
     oneshot
 
-service otaagent_startup /system/bin/sh /system/etc/otaup.sh
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-on property:sys.boot_completed=1
-    start otaagent_startup
+#service otaagent_startup /system/bin/sh /system/etc/otaup.sh
+#    class main
+#    user root
+#    group root
+#    disabled
+#    oneshot
+#on property:sys.boot_completed=1
+#    start otaagent_startup
 
 # offline OTA process
 service offline_otaproc /system/bin/sh /system/etc/update.sh
@@ -361,27 +361,27 @@ service startup_service /system/bin/sh /system/etc/startup.sh
 on property:sys.startup.trigger=1
     start startup_service
 
-# cust services
-service custd /system/bin/custd
-    class main
-    user root
-    group root
+### cust services
+#service custd /system/bin/custd
+#    class main
+#    user root
+#    group root
 
-service cust_sysinit /system/bin/sh /system/etc/cust_sysinit.sh
-    class main
-    user root
-    group root
-    oneshot
+#service cust_sysinit /system/bin/sh /system/etc/cust_sysinit.sh
+#    class main
+#    user root
+#    group root
+#    oneshot
 
-service custcfg_upgrade /system/bin/sh /system/etc/cust_update.sh
-    class main
-    user root
-    group root
-    oneshot
-    disabled
+#service custcfg_upgrade /system/bin/sh /system/etc/cust_update.sh
+#    class main
+#    user root
+#    group root
+#    oneshot
+#    disabled
 
-on property:sys.cust.trigger=1
-    start custcfg_upgrade
+#on property:sys.cust.trigger=1
+#    start custcfg_upgrade
 
 on fs
 # mount ext4 partitions

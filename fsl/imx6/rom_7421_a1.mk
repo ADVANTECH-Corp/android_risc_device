@@ -33,10 +33,10 @@ PRODUCT_COPY_FILES +=   \
 	device/fsl/rom_7421_a1/advantech.sh:system/bin/advantech.sh \
         device/fsl/rom_7421_a1/cts.sh:system/bin/cts.sh
 
-PRODUCT_COPY_FILES +=   \
-        device/fsl/rom_7421_a1/cust/cust_update.zip:system/cust/cust_update.zip \
-        device/fsl/rom_7421_a1/cust/cust_sysinit.sh:system/etc/cust_sysinit.sh \
-        device/fsl/rom_7421_a1/cust/cust_update.sh:system/etc/cust_update.sh
+#PRODUCT_COPY_FILES +=   \
+#        device/fsl/rom_7421_a1/cust/cust_update.zip:system/cust/cust_update.zip \
+#        device/fsl/rom_7421_a1/cust/cust_sysinit.sh:system/etc/cust_sysinit.sh \
+#        device/fsl/rom_7421_a1/cust/cust_update.sh:system/etc/cust_update.sh
 
 # ota related file for android
 PRODUCT_COPY_FILES += \
