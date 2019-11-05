@@ -10,3 +10,5 @@ add_lunch_combo aiy_8mq-user
 add_lunch_combo aiy_8mq-userdebug
 add_lunch_combo evk_8mn-user
 add_lunch_combo evk_8mn-userdebug
+add_lunch_combo rom5720_a1-user
+add_lunch_combo rom5720_a1-userdebug
