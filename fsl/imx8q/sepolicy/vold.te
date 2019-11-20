@@ -1,2 +1,4 @@
 allow vold vendor_configs_file:file { map };
 allow vold proc_swaps:file { read open getattr };
+allow vold self:capability { net_admin dac_override mknod sys_admin chown fowner fsetid };
+allow vold sysfs_block_devices:file { write };

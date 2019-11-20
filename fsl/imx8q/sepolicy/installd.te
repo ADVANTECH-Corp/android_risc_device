@@ -1,1 +1,2 @@
 allow installd vendor_configs_file:file { map };
+allow installd self:capability { chown dac_override fowner fsetid setgid setuid };
