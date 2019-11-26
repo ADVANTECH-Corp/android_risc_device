@@ -73,23 +73,23 @@ BOARD_HOSTAPD_PRIVATE_LIB_BCM           := lib_driver_cmd_bcmdhd
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB_BCM    := lib_driver_cmd_bcmdhd
 endif
 
-WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/brcmfmac/parameters/alternative_fw_path"
+#WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/brcmfmac/parameters/alternative_fw_path"
 
-WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+#WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
 # QCA qcacld wifi driver module
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(KERNEL_OUT)/drivers/net/wireless/qcacld-2.0/wlan.ko
+#BOARD_VENDOR_KERNEL_MODULES += \
+#    $(KERNEL_OUT)/drivers/net/wireless/qcacld-2.0/wlan.ko
 
 # BCM fmac wifi driver module
-BOARD_VENDOR_KERNEL_MODULES += \
-    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko \
-    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko
+#BOARD_VENDOR_KERNEL_MODULES += \
+#    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko \
+#    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko
 
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(IMX_DEVICE_PATH)/bluetooth
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(IMX_DEVICE_PATH)/bluetooth
 
 # BCM 1CX BT
-BOARD_HAVE_BLUETOOTH_BCM := true
+#BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Qcom 1CQ(QCA6174) BT
 #BOARD_HAVE_BLUETOOTH_QCOM := true
