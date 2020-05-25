@@ -33,5 +33,6 @@ PRODUCT_MAKEFILES := \
   $(LOCAL_DIR)/evk_8mm/evk_8mm_drm.mk \
   $(LOCAL_DIR)/aiy_8mq/aiy_8mq.mk \
   $(LOCAL_DIR)/evk_8mn/evk_8mn.mk \
-  $(LOCAL_DIR)/rom5720_a1/rom5720_a1.mk
+  $(LOCAL_DIR)/rom5720_a1/rom5720_a1.mk \
+  $(LOCAL_DIR)/rom5721_a1/rom5721_a1.mk
 
