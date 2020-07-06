@@ -167,7 +167,7 @@ TARGET_BOARD_DTS_CONFIG ?= imx8mm:fsl-imx8mm-trusty-evk.dtb
 else
 # imx8mm with MIPI-HDMI display and QCA wifi
 #TARGET_BOARD_DTS_CONFIG ?= imx8mm:adv-imx8mm-rom5721-a1.dtb
-TARGET_BOARD_DTS_CONFIG ?= imx8mm:adv-imx8mm-android-rom5721-a1-adv7535.dtb
+TARGET_BOARD_DTS_CONFIG ?= imx8mm:adv-imx8mm-android-rom5721-a1-auog101uan02.dtb
 # u-boot target for imx8mm_evk with LPDDR4 on board
 ifeq ($(LOW_MEMORY),true)
 TARGET_BOOTLOADER_CONFIG := imx8mm:imx8mm_evk_1g_ddr_android_defconfig
@@ -178,9 +178,9 @@ endif
 # TARGET_BOOTLOADER_CONFIG += imx8mm-ddr4:imx8mm_ddr4_rom5721a1_2G_android_defconfig
 endif
 # imx8mm with MIPI panel display and QCA wifi
-TARGET_BOARD_DTS_CONFIG += imx8mm-mipi-panel:adv-imx8mm-rom5721-a1-auog101uan02.dtb
+TARGET_BOARD_DTS_CONFIG += imx8mm-adv7535:adv-imx8mm-android-rom5721-a1-adv7535.dtb
 # imx8mm with MIPI-HDMI display, QCA wifi and m4 image to support LPA
-TARGET_BOARD_DTS_CONFIG += imx8mm-m4:adv-imx8mm-android-rom5721-a1-adv7535.dtb
+#TARGET_BOARD_DTS_CONFIG += imx8mm-m4:adv-imx8mm-android-rom5721-a1-adv7535.dtb
 # imx8mm with MIPI-HDMI display with BCM wifi
 # TARGET_BOARD_DTS_CONFIG += imx8mm-ddr4:fsl-imx8mm-ddr4-evk.dtb
 TARGET_KERNEL_DEFCONFIG := rom5721_android_defconfig
