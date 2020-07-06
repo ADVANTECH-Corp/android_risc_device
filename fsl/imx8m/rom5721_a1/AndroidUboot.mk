@@ -13,7 +13,7 @@ define build_imx_uboot
 		cp $(UBOOT_OUT)/arch/arm/dts/fsl-imx8mm-ddr4-evk.dtb $(IMX_MKIMAGE_PATH)/imx-mkimage/iMX8M/.; \
 		cp $(FSL_PROPRIETARY_PATH)/fsl-proprietary/uboot-firmware/imx8m/ddr4_* $(IMX_MKIMAGE_PATH)/imx-mkimage/iMX8M/.; \
 	else \
-		cp $(UBOOT_OUT)/arch/arm/dts/fsl-imx8mm-evk.dtb  $(IMX_MKIMAGE_PATH)/imx-mkimage/iMX8M/.; \
+		cp $(UBOOT_OUT)/arch/arm/dts/adv-imx8mm-rom5721-a1.dtb  $(IMX_MKIMAGE_PATH)/imx-mkimage/iMX8M/fsl-imx8mm-evk.dtb; \
 		cp $(FSL_PROPRIETARY_PATH)/fsl-proprietary/uboot-firmware/imx8m/lpddr4_pmu_train_* $(IMX_MKIMAGE_PATH)/imx-mkimage/iMX8M/.; \
 	fi; \
 	$(MAKE) -C $(IMX_PATH)/arm-trusted-firmware/ PLAT=`echo $(2) | cut -d '-' -f1` clean; \
