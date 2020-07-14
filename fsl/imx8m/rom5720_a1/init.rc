@@ -82,6 +82,7 @@ on early-boot
 
     # Prepare for wifi
     setprop wifi.interface wlan0
+    setprop wifi.concurrent.interface p2p0
 
     setprop persist.service.bdroid.bdaddr 22:22:67:C6:69:73
 
@@ -126,6 +127,8 @@ on early-boot
 
     # enlarge media max memory size to 3G.
     setprop ro.media.maxmem 3221225471
+
+    start vendor.wifi_hal_legacy
 
 on boot
     start audioserver
