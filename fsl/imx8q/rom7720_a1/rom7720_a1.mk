@@ -292,3 +292,7 @@ PRODUCT_PROPERTY_OVERRIDES += ro.frp.pst=/dev/block/by-name/presistdata
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 BOARD_VNDK_VERSION := current
+
+# adb tcp debug
+PRODUCT_PROPERTY_OVERRIDES += service.adb.tcp.port=5555
+
