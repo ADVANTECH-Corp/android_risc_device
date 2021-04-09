@@ -13,5 +13,22 @@
 /dev/block/mmcblk2rpmb    0600   system     system
 /dev/trusty-ipc-dev0      0660   system     drmrpc
 
+/dev/ttymxc1              0777   root      root
+/dev/ttymxc2              0777   root      root
+/dev/ttymxc3              0777   root      root
+/dev/ttymxc4              0777   root      root
+/dev/ttymxc5              0777   root      root
+/dev/ttymxc6              0777   root      root
+/dev/ttyUSB0              0777   root      root
+/dev/ttyUSB1              0777   root      root
+/dev/ttyUSB2              0777   root      root
+/dev/ttyUSB3              0777   root      root
+/dev/ttyUSB4              0777   root      root
+/dev/ttyUSB5              0777   root      root
+/dev/ttyUSB6              0777   root      root
+/dev/ttyUSB7              0777   root      root
+/dev/ttyUSB8              0777   root      root
+/dev/ttyUSB9              0777   root      root
+
 /sys/devices/virtual/thermal/thermal_zone* trip_point_0_temp 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_1_temp 0660 system system

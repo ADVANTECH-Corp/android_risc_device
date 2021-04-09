@@ -167,7 +167,9 @@ TARGET_BOARD_DTS_CONFIG ?= imx8mm:fsl-imx8mm-trusty-evk.dtb
 else
 # imx8mm with MIPI-HDMI display and QCA wifi
 #TARGET_BOARD_DTS_CONFIG ?= imx8mm:adv-imx8mm-rom5721-a1.dtb
-TARGET_BOARD_DTS_CONFIG ?= imx8mm:adv-imx8mm-android-rom5721-a1-auog101uan02.dtb
+#TARGET_BOARD_DTS_CONFIG ?= imx8mm:adv-imx8mm-android-rom5721-a1-auog101uan02.dtb
+#TARGET_BOARD_DTS_CONFIG ?= imx8mm:adv-imx8mm-android-rom5721-a1-dsi2lvds-m101nwwb.dtb
+TARGET_BOARD_DTS_CONFIG ?= imx8mm:adv-imx8mm-android-rom5721-a1-dsi2lvds-g070vw01.dtb
 # u-boot target for imx8mm_evk with LPDDR4 on board
 ifeq ($(LOW_MEMORY),true)
 TARGET_BOOTLOADER_CONFIG := imx8mm:imx8mm_evk_1g_ddr_android_defconfig
