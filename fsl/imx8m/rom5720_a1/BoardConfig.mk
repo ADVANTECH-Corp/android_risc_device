@@ -153,13 +153,13 @@ TARGET_BOARD_DTS_CONFIG ?= imx8mq:adv-imx8mq-rom5720-a1-dual-display.dtb
 # imx8mq rev. B3 board with MIPI panel display
 #TARGET_BOARD_DTS_CONFIG += imx8mq-mipi-panel-b3:fsl-imx8mq-evk-dcss-rm67191-b3.dtb
 # u-boot target for imx8mq_evk
-TARGET_BOOTLOADER_CONFIG := imx8mq:imx8mq_rom5720a1_2G_android_defconfig
+TARGET_BOOTLOADER_CONFIG := imx8mq:imx8mq_rom5720a1_4G_android_defconfig
 
 TARGET_KERNEL_DEFCONFIG := rom5720_android_defconfig
 # TARGET_KERNEL_ADDITION_DEFCONF ?= android_addition_defconfig
 
 # u-boot target used by uuu for imx8mq_evk
-TARGET_BOOTLOADER_CONFIG += imx8mq-evk-uuu:imx8mq_rom5720a1_2G_android_uuu_defconfig
+TARGET_BOOTLOADER_CONFIG += imx8mq-evk-uuu:imx8mq_rom5720a1_4G_android_uuu_defconfig
 
 BOARD_SEPOLICY_DIRS := \
        device/fsl/imx8m/sepolicy \
